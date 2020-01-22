@@ -1,6 +1,12 @@
 #!/usr/bin/python
 # -*-coding:Utf-8 -*-
- 
+ #####################################
+#this script allows you to backup a MySQL database and restore it
+#This script was created and tested in Décember 2019, on a Debian machine
+#DATE 19/12/2019
+#Created  by Alexis LERICHE
+#Python version: 2.7.13
+####################################
 # Import required python libraries
  
 import os
@@ -12,14 +18,16 @@ import pipes
  
 DB_HOST = 'localhost' 
 DB_USER = 'root'
-DB_USER_PASSWORD = 'password'
-DB_NAME = 'P7'
+DB_USER_PASSWORD = raw_input('Mot de passe MySQL')
+DB_NAME = raw_input('entrer le nom de la base de donée a Sauvegardé :' )
 BACKUP_PATH = '/etc/backup/dbbackup'
  
 # Varaible D'heure et Jour.
 DATETIME = time.strftime('%Y%m%d-%H%M%S')
 TODAYBACKUPPATH = BACKUP_PATH + '/' + DATETIME
- 
+
+class Backup:
+
 # Vérifier si le dossier de sauvegarde existe déjà ou non. S'il n'existe pas, le créer.
 try:
     os.stat(TODAYBACKUPPATH)
@@ -61,7 +69,13 @@ else:
    os.system(dumpcmd)
    gzipcmd = "gzip " + pipes.quote(TODAYBACKUPPATH) + "/" + db + ".sql"
    os.system(gzipcmd)
+   os.system('ln -s ' + TODAYBACKUPPATH + "/" + db + ".sql" ' /etc/backup/LastBackup')
  
 print ("")
 print ("Script de sauvegarde terminé")
 print ("Vos sauvegardes ont été créées dans '" + TODAYBACKUPPATH + "' directory")
+
+class Restore:
+    
+os.system ("cp /etc/backup/LastBackup/" + TODAYBACKUPPATH + "/" + db + ".sql /var/lib/mysql/")
+
