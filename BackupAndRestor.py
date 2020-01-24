@@ -107,11 +107,11 @@ def process_user_choice(user_choice):
                 print("Restore BDD + Wordpress + Apache")       #######   Choix utilisateur 2 = Restauration    #######
                 restore()
 
-        elif user_choice == 99:                                 #######   Choix utilisateur 99 = Quite le programme    #######
+        elif user_choice == 99:                                 #######   Choix utilisateur 99 = Quitte le programme    #######
                 exit(0)
 
         else:
-                sys.stderr.write("Error : Choice the number \n")        #######   Si aucun des nombre du dessus message d'erreur    #######
+                sys.stderr.write("Error : Choice the number \n")        #######   Si aucun des chiffres du dessus message d'erreur    #######
                 sys.exit(1)
 
 
@@ -129,7 +129,7 @@ def main():
                         user_choice = int(input("Enter your choice : > ")) #######   Attente choix utilisateur     #######
                         break
                 except ValueError:
-                        sys.stderr.write("Error : Undefined choice")
+                        sys.stderr.write("Error : Undefined choice")    #######   si erreur print "Error : Undefined choice"     #######
                 # sys.exit(1)
         process_user_choice(user_choice)
 
@@ -139,30 +139,30 @@ def main():
 DATETIME = time.strftime('%Y%m%d-%H%M%S')
 
 ###   Backup   ###
-PATHBACKUPTMP = ('/tmp/backup')
-PATHBACKUP = ('/data/backup/')
+PATHBACKUPTMP = ('/tmp/backup')         #######   Chemin temporaire de la Sauvegarde     #######
+PATHBACKUP = ('/data/backup/')          #######   Chemin final de la sauvegarde    #######
 
-LASTBACKUP = ('/data/backup/LastBackup.tar.gz')
+LASTBACKUP = ('/data/backup/LastBackup.tar.gz')         #######   chemin de la derniere sauvegarde pour le lien symbolique     #######
 
 ###   Restore   ###
-PATHRESTORETMP = ('/tmp/Restore')
-PATHRESTORE = ('/tmp/Restore/tmp/backup/')
+PATHRESTORETMP = ('/tmp/Restore')               #######   Chemin temporaire de la Restauration     #######
+PATHRESTORE = ('/tmp/Restore/tmp/backup/')      #######   Chemin temporaire de l' extraction de l'archive     #######
 
-###   MySQL   ###
-DB_HOST = 'localhost'
-DB_NAME = raw_input('entrer le nom de la base Mysql : ' )
-DB_USER = 'root'
-DB_PASSWORD = raw_input('Mot de passe MySQL : ' )
+###   MySQL   ###               
+DB_HOST = 'localhost'           #######   Nom du serveur ou ce trouve les données     #######
+DB_NAME = raw_input('entrer le nom de la base Mysql : ' )       #######   Nom de la BDD avec saisie utilisateur      #######
+DB_USER = 'root'                                                #######   Utilisateur pour la conexion a MySQL      #######
+DB_PASSWORD = raw_input('Mot de passe MySQL : ' )               #######   Mot de passe  pour la conexion a MySQL avec saisie Utilisateur     #######
 
 ###   WordPress   ###
-WP_PATH = (' /var/www')
+WP_PATH = (' /var/www')                 #######   Chemin /var/www     #######
 
 ###   Apache   ###
-APACHE_PATH = (' /etc/apache2')
+APACHE_PATH = (' /etc/apache2')         #######   Chemin /etc/apache2     #######
 
 try:
         main()                          #######   Démarage du programme     #######
-except KeyboardInterrupt:               #######   interuption     #######
+except KeyboardInterrupt:               #######    sinon interuption  #######
         print('Process Interrupted')
         try:
                 sys.exit(0)
