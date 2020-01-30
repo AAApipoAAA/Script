@@ -139,26 +139,26 @@ def main():
 DATETIME = time.strftime('%Y%m%d-%H%M%S')
 
 ###   Backup   ###
-PATHBACKUPTMP = ('/tmp/backup')         #######   Chemin temporaire de la Sauvegarde     #######
-PATHBACKUP = ('/data/backup/')          #######   Chemin final de la sauvegarde    #######
+PATHBACKUPTMP = ('***********')         #######   Chemin temporaire de la Sauvegarde     #######
+PATHBACKUP = ('*************')          #######   Chemin final de la sauvegarde    #######
 
-LASTBACKUP = ('/data/backup/LastBackup.tar.gz')         #######   chemin de la derniere sauvegarde pour le lien symbolique     #######
+LASTBACKUP = ('**************')         #######   chemin de la derniere sauvegarde pour le lien symbolique     #######
 
 ###   Restore   ###
-PATHRESTORETMP = ('/tmp/Restore')               #######   Chemin temporaire de la Restauration     #######
-PATHRESTORE = ('/tmp/Restore/tmp/backup/')      #######   Chemin temporaire de l' extraction de l'archive     #######
+PATHRESTORETMP = ('****')               #######   Chemin temporaire de la Restauration     #######
+PATHRESTORE = ('****************')      #######   Chemin temporaire de l' extraction de l'archive     #######
 
 ###   MySQL   ###               
-DB_HOST = 'localhost'           #######   Nom du serveur ou ce trouve les données     #######
+DB_HOST = '*****************'           #######   Nom du serveur ou ce trouve la BDD     #######
 DB_NAME = raw_input('entrer le nom de la base Mysql : ' )       #######   Nom de la BDD avec saisie utilisateur      #######
-DB_USER = 'root'                                                #######   Utilisateur pour la conexion a MySQL      #######
+DB_USER = '****'                                                #######   Utilisateur pour la conexion a MySQL      #######
 DB_PASSWORD = raw_input('Mot de passe MySQL : ' )               #######   Mot de passe  pour la conexion a MySQL avec saisie Utilisateur     #######
 
 ###   WordPress   ###
-WP_PATH = (' /var/www')                 #######   Chemin /var/www     #######
+WP_PATH = (' ********')                 #######   Chemin /var/www     #######
 
 ###   Apache   ###
-APACHE_PATH = (' /etc/apache2')         #######   Chemin /etc/apache2     #######
+APACHE_PATH = (' ************')         #######   Chemin /etc/apache2     #######
 
 try:
         main()                          #######   Démarage du programme     #######
