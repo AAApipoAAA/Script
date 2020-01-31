@@ -32,3 +32,4 @@ WP_PATH = (' ********')                 #######   Chemin /var/www     #######
 
 ###   Apache   ###
 APACHE_PATH = (' ************')         #######   Chemin /etc/apache2     #######
+
